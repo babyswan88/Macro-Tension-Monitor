@@ -11,7 +11,7 @@ Rules:
 
 API keys come from environment variables (GitHub repository secrets):
   FRED_API_KEY   required  https://fred.stlouisfed.org/docs/api/api_key.html
-  EIA_API_KEY    optional  https://www.eia.gov/opendata/register.php  (WTI futures)
+  EIA_API_KEY    not currently used (EIA stopped publishing NYMEX futures in 2024)
   TWELVEDATA_API_KEY optional https://twelvedata.com/register     (USD/JPY, DXY)
 """
 import csv, io, json, math, os, statistics, sys, time, traceback
@@ -298,6 +298,12 @@ def auctions():
     return out
 
 
+# Maximum age (calendar days) of the latest observation before it counts as a failure.
+# Stops a discontinued or frozen series from showing old numbers as current.
+MAX_AGE = {"cpi": 75, "pce": 90, "diesel": 21, "cot": 21, "tp10": 45}
+DEFAULT_MAX_AGE = 12
+
+
 # ---------------------------------------------------------------- registry
 FETCHERS = {
     "ust2": tsy("2 Yr"), "ust10": tsy("10 Yr"), "ust30": tsy("30 Yr"),
@@ -307,7 +313,7 @@ FETCHERS = {
     "spx": fred_latest("SP500", "S&P 500 close"),
     "corr": corr,
     "brent": fred_latest("DCOILBRENTEU", "Brent spot, EIA"),
-    "wti": eia_wti,
+    "wti": fred_latest("DCOILWTICO", "WTI spot, Cushing, EIA"),
     "diesel": fred_latest("GASDESW", "US on-highway diesel, EIA weekly"),
     "cpi": fred_yoy("CPIAUCNS", "CPI-U, not seasonally adjusted"),
     "pce": fred_yoy("PCEPILFE", "core PCE price index"),
@@ -336,6 +342,9 @@ def main():
             r = fn()
             if not isinstance(r["value"], (int, float)) or (isinstance(r["value"], float) and math.isnan(r["value"])):
                 raise RuntimeError("non-numeric value")
+            age = (datetime.now(timezone.utc).date() - date.fromisoformat(r["asof"][:10])).days
+            if age > MAX_AGE.get(id_, DEFAULT_MAX_AGE):
+                raise RuntimeError(f"latest observation {r['asof']} is {age} days old; source may be discontinued")
             r.update(fetched=now, stale=False)
             out[id_] = r
             ok.append(id_)

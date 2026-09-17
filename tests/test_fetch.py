@@ -69,11 +69,11 @@ def main():
     d = F.dxy(); assert 90 < d["value"] < 105, d
     # main(): failures keep previous values and mark stale
     tmp = tempfile.mkdtemp(); F.DATA = tmp
-    json.dump({"indicators": {"wti": {"value": 102, "asof": "2026-09-15", "source": "seed"}}}, open(os.path.join(tmp, "latest.json"), "w"))
+    json.dump({"indicators": {"tp10": {"value": 71, "asof": "2026-09-15", "source": "seed"}}}, open(os.path.join(tmp, "latest.json"), "w"))
     json.dump({"boj": {"value": 1.0, "asof": "2026-07-31", "source": "BoJ"}}, open(os.path.join(tmp, "manual.json"), "w"))
     F.main()
     out = json.load(open(os.path.join(tmp, "latest.json")))
-    assert out["indicators"]["wti"]["stale"] and out["indicators"]["wti"]["value"] == 102
+    assert out["indicators"]["tp10"]["stale"] and out["indicators"]["tp10"]["value"] == 71
     assert out["indicators"]["boj"]["manual"] and out["indicators"]["ust10"]["value"] == 5.01
     shutil.rmtree(tmp)
     print("all tests passed")

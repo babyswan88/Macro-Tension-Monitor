@@ -177,7 +177,7 @@
   {
    "id": "wti",
    "g": "oil",
-   "label": "WTI crude",
+   "label": "WTI crude (spot)",
    "sub": "",
    "unit": "$",
    "trigger": 115,
@@ -185,8 +185,8 @@
    "hi": 140,
    "dir": "above",
    "about": [
-    "NYMEX WTI front-month futures settlement price (EIA series RCLC1), in dollars per barrel. It is the US crude benchmark, delivered at Cushing, Oklahoma.",
-    "It normally trades a few dollars below Brent. A widening Brent-WTI gap points to seaborne and Middle East disruption rather than a US supply problem. Note the Brent card is spot, so compare with care. The trigger is $115.",
+    "WTI crude spot price at Cushing, Oklahoma, in dollars per barrel, as published by the EIA via FRED. WTI is the US crude benchmark. This is the physical spot price, not the front-month futures settle, and it posts with a lag of a few days.",
+    "It normally trades a few dollars below Brent. A widening Brent-WTI gap points to seaborne and Middle East disruption rather than a US supply problem. Both cards are spot prices, so the gap between them is a like-for-like comparison. The trigger is $115.",
     "It sets US gasoline and diesel pricing, the fastest channel from crude into US CPI."
    ]
   },
