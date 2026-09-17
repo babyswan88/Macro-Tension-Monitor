@@ -33,7 +33,7 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
           EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
-          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVE_API_KEY }}
         run: python scripts/fetch.py
 
       - name: Commit data if it changed
