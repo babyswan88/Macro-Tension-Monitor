@@ -1,0 +1,416 @@
+{
+ "id": "liquidity",
+ "title": "Treasury liquidity",
+ "tagline": "Basis-trade unwind setup: how far each input sits from the level that changes hedge-fund behavior.",
+ "groups": [
+  [
+   "rates",
+   "Rates",
+   "The 10-year is the trigger; the 30-year is the symptom. Watch the curve shape as much as the level."
+  ],
+  [
+   "vol",
+   "Volatility and correlation",
+   "A bear steepener with stocks down is the regime where Treasuries stop hedging and margins go up."
+  ],
+  [
+   "oil",
+   "Oil and inflation",
+   "No soft print is coming while Hormuz is constrained; these decide the front end."
+  ],
+  [
+   "foreign",
+   "Foreign demand",
+   "Japan is the largest foreign holder. Higher JGB yields and a stronger yen pull money home."
+  ],
+  [
+   "plumbing",
+   "Plumbing and positioning",
+   "Where the unwind shows up first: repo, margins, COT, and whether auctions clear."
+  ]
+ ],
+ "indicators": [
+  {
+   "id": "ust10",
+   "g": "rates",
+   "label": "10-year Treasury",
+   "sub": "White's line in the sand: stock-bond correlation flips, bond vol re-rates",
+   "unit": "%",
+   "trigger": 5.25,
+   "lo": 4.0,
+   "hi": 6.0,
+   "dir": "above",
+   "about": [
+    "Yield on the 10-year Treasury note from Treasury's daily par yield curve. It is the benchmark for mortgage rates, corporate borrowing costs and the discount rate used to value equities.",
+    "Higher means tighter financial conditions everywhere. The 5.25% trigger is the level where this monitor expects stocks and bonds to start falling together and bond volatility to reprice higher.",
+    "Basis-trade funds own cash Treasuries financed in repo and are short futures against them. A fast rise in yields lifts futures margins and repo haircuts at the same time, which can force them to sell cash bonds into a falling market."
+   ]
+  },
+  {
+   "id": "ust30",
+   "g": "rates",
+   "label": "30-year Treasury",
+   "sub": "Least liquid coupon; buyback target",
+   "unit": "%",
+   "trigger": 5.42,
+   "lo": 4.5,
+   "hi": 6.0,
+   "dir": "above",
+   "about": [
+    "Yield on the 30-year Treasury bond from Treasury's daily par yield curve. It carries the most duration per dollar and has the thinnest dealer capacity of any benchmark.",
+    "If the 30-year rises faster than the 10-year, the curve is bear steepening: investors want more pay to hold long duration. The trigger is 5.42%.",
+    "The long end is where supply strain shows up first, and it is the segment Treasury buybacks target. Yields still climbing here while buybacks run means they are not absorbing enough supply."
+   ]
+  },
+  {
+   "id": "ust2",
+   "g": "rates",
+   "label": "2-year Treasury",
+   "sub": "Front end: is the curve bear-flattening or bear-steepening?",
+   "unit": "%",
+   "trigger": 4.5,
+   "lo": 3.0,
+   "hi": 5.5,
+   "dir": "above",
+   "about": [
+    "Yield on the 2-year Treasury note, the coupon most sensitive to where markets expect Fed policy over the next two years.",
+    "Read it against the 10-year and 30-year. If the 2-year rises most, the market is pricing hikes (bear flattening). If the long end rises most, the pressure is term premium, supply or fiscal risk (bear steepening). The trigger is 4.50%.",
+    "It separates a policy story from a duration-supply story. Steepening driven by term premium is the more dangerous regime for levered holders of long-dated cash bonds."
+   ]
+  },
+  {
+   "id": "ff",
+   "g": "rates",
+   "label": "Fed funds (upper bound)",
+   "sub": "Warsh flagging inflation risk",
+   "unit": "%",
+   "trigger": 4.25,
+   "lo": 3.0,
+   "hi": 5.0,
+   "dir": "above",
+   "about": [
+    "Upper bound of the FOMC's target range for the federal funds rate, as published by FRED (series DFEDTARU).",
+    "FRED dates a change to the day it takes effect, usually the day after the decision, so this can lag a statement by one day. The 4.25% trigger marks one more hike.",
+    "It anchors overnight repo rates. Basis-trade profit is the bond's yield minus the cost of repo funding, so every hike squeezes that carry and raises the cost of staying in the trade."
+   ]
+  },
+  {
+   "id": "tp10",
+   "g": "rates",
+   "label": "10-year term premium",
+   "sub": "Fell after buyback announcement; the buyback's own scorecard",
+   "unit": "bp",
+   "trigger": 100,
+   "lo": 0,
+   "hi": 150,
+   "dir": "above",
+   "about": [
+    "The Adrian-Crump-Moench (ACM) model estimate of the 10-year term premium, published by the New York Fed: the extra yield investors demand for holding a 10-year note instead of rolling short-term bills. Shown in basis points.",
+    "Higher means more compensation demanded for duration risk. It is a model estimate, not a traded price, and it can be revised. The trigger is 100bp.",
+    "It strips out expected Fed policy and isolates the supply and risk part of yields. Lowering it is the buyback program's goal, so a rising term premium says the market is struggling to absorb duration."
+   ]
+  },
+  {
+   "id": "vix",
+   "g": "vol",
+   "label": "VIX",
+   "sub": "Equity vol; matters with bonds down, not alone",
+   "unit": "",
+   "trigger": 25,
+   "lo": 10,
+   "hi": 50,
+   "dir": "above",
+   "about": [
+    "The Cboe Volatility Index: 30-day implied volatility on S&P 500 options.",
+    "Below about 20 is calm. The trigger is 25. On its own it says little about Treasuries.",
+    "It matters in combination. High VIX with high MOVE and a positive stock-bond correlation signals cross-asset deleveraging: multi-strategy funds cut gross exposure across every book at once, basis trades included."
+   ]
+  },
+  {
+   "id": "corr",
+   "g": "vol",
+   "label": "SPX / 10y rolling correlation (1m)",
+   "sub": "Positive = Treasuries stop hedging equities",
+   "unit": "",
+   "trigger": 0.2,
+   "lo": -1,
+   "hi": 1,
+   "dir": "above",
+   "about": [
+    "Correlation of daily S&P 500 returns with daily changes in the 10-year yield over the last 21 trading days, with the sign flipped. Calculated from FRED data.",
+    "Negative means Treasuries are hedging stocks: bond prices rise when stocks fall. Positive means stocks and bonds are falling together. The trigger is +0.20. A 21-day window is noisy, so give more weight to readings that stay above the trigger.",
+    "When bonds stop hedging, balanced and risk-parity portfolios lose their diversification and cut both legs, adding Treasury supply. Risk models also show higher portfolio risk, which forces further cuts."
+   ]
+  },
+  {
+   "id": "spx",
+   "g": "vol",
+   "label": "S&P 500",
+   "sub": "Is equity absorbing the rate move?",
+   "unit": "",
+   "trigger": 7200,
+   "lo": 6500,
+   "hi": 8000,
+   "dir": "below",
+   "about": [
+    "The S&P 500 closing level.",
+    "Watch it alongside yields. A steady index while yields rise means equities are absorbing the move. The trigger is a close below 7,200.",
+    "An equity sell-off together with higher yields is the regime where margin calls hit across assets and funds raise cash by selling their most liquid holdings, which are Treasuries."
+   ]
+  },
+  {
+   "id": "brent",
+   "g": "oil",
+   "label": "Brent crude (spot)",
+   "sub": "East-West pipeline offline; Goldman flags $120 scenario",
+   "unit": "$",
+   "trigger": 120,
+   "lo": 70,
+   "hi": 140,
+   "dir": "above",
+   "about": [
+    "Brent crude spot price, in dollars per barrel, as published by the EIA via FRED. Brent is the global crude benchmark. This is the physical spot price, not the front-month futures settle, and it posts with a lag of several days.",
+    "The $120 trigger matches the Goldman Sachs upside scenario. With the East-West pipeline offline, disruption risk is in the price.",
+    "Oil feeds straight into headline inflation and inflation expectations. That keeps the Fed from easing and pushes breakevens and nominal yields up."
+   ]
+  },
+  {
+   "id": "wti",
+   "g": "oil",
+   "label": "WTI crude",
+   "sub": "",
+   "unit": "$",
+   "trigger": 115,
+   "lo": 70,
+   "hi": 140,
+   "dir": "above",
+   "about": [
+    "NYMEX WTI front-month futures settlement price (EIA series RCLC1), in dollars per barrel. It is the US crude benchmark, delivered at Cushing, Oklahoma.",
+    "It normally trades a few dollars below Brent. A widening Brent-WTI gap points to seaborne and Middle East disruption rather than a US supply problem. Note the Brent card is spot, so compare with care. The trigger is $115.",
+    "It sets US gasoline and diesel pricing, the fastest channel from crude into US CPI."
+   ]
+  },
+  {
+   "id": "diesel",
+   "g": "oil",
+   "label": "US retail diesel",
+   "sub": "Feeds core goods and transport",
+   "unit": "$/gal",
+   "trigger": 6.0,
+   "lo": 3.5,
+   "hi": 7.0,
+   "dir": "above",
+   "about": [
+    "The EIA's weekly US average retail price of on-highway diesel, in dollars per gallon, surveyed each Monday.",
+    "The trigger is $6.00. For scale, the 2022 weekly peak was about $5.81.",
+    "Diesel moves freight, farming and construction. It passes into core goods and services prices with a lag, so it is an early read on inflation that goes beyond headline energy."
+   ]
+  },
+  {
+   "id": "cpi",
+   "g": "oil",
+   "label": "Headline CPI y/y (latest)",
+   "sub": "Next prints carry two months of $100+ crude",
+   "unit": "%",
+   "trigger": 3.5,
+   "lo": 1.5,
+   "hi": 5.5,
+   "dir": "above",
+   "about": [
+    "BLS Consumer Price Index for all urban consumers: the headline 12-month change, not seasonally adjusted. The date shown is the month the data covers.",
+    "The trigger is 3.5%. The next prints will include two months of crude above $100.",
+    "A hot print lifts front-end yields and the odds of a hawkish Fed. It also shapes demand for inflation-protected versus nominal Treasuries at auction."
+   ]
+  },
+  {
+   "id": "pce",
+   "g": "oil",
+   "label": "Core PCE y/y (latest)",
+   "sub": "",
+   "unit": "%",
+   "trigger": 3.0,
+   "lo": 1.5,
+   "hi": 5.0,
+   "dir": "above",
+   "about": [
+    "BEA core PCE price index (excluding food and energy), 12-month change. It is the Fed's preferred inflation measure against its 2% target. The date shown is the month the data covers.",
+    "The trigger is 3.0%. It is released later than CPI and usually runs a few tenths below it.",
+    "This is what the FOMC actually targets. Readings stuck above 3% rule out cuts and raise the odds of hikes, which raises repo funding costs for levered holders."
+   ]
+  },
+  {
+   "id": "boj",
+   "g": "foreign",
+   "label": "BoJ policy rate",
+   "sub": "",
+   "unit": "%",
+   "trigger": 1.25,
+   "lo": 0,
+   "hi": 2.0,
+   "dir": "above",
+   "about": [
+    "The Bank of Japan's guideline for the uncollateralized overnight call rate, its policy rate. Dated to the latest decision.",
+    "The 1.25% trigger marks the next hike.",
+    "Japan is the largest foreign holder of Treasuries. Higher Japanese rates narrow the gap with US yields, reduce the pull to hold Treasuries and make yen-funded carry trades more expensive."
+   ]
+  },
+  {
+   "id": "jgb10",
+   "g": "foreign",
+   "label": "10-year JGB",
+   "sub": "30-year high; every bp keeps Japanese money home",
+   "unit": "%",
+   "trigger": 2.5,
+   "lo": 1.0,
+   "hi": 3.5,
+   "dir": "above",
+   "about": [
+    "Yield on the 10-year Japanese government bond, from Japan's Ministry of Finance.",
+    "Higher means domestic bonds are more competitive for Japanese investors. The trigger is 2.5%.",
+    "Japanese life insurers and pension funds compare domestic yields with currency-hedged US yields. Higher JGB yields keep money at home and can pull it back out of Treasuries, removing a large structural buyer."
+   ]
+  },
+  {
+   "id": "usdjpy",
+   "g": "foreign",
+   "label": "USD/JPY",
+   "sub": "Intervention zone; stronger yen = repatriation pressure",
+   "unit": "",
+   "trigger": 145,
+   "lo": 130,
+   "hi": 170,
+   "dir": "below",
+   "about": [
+    "Yen per US dollar, daily close from Twelve Data. A lower number means a stronger yen.",
+    "The trigger is a move below 145, a sharp yen rally. Near the other extreme, Japan's Ministry of Finance has stepped in to support the yen before.",
+    "Rapid yen strength signals repatriation and yen carry trades unwinding. Intervention to support the yen is funded from dollar reserves, which can mean selling Treasuries."
+   ]
+  },
+  {
+   "id": "dxy",
+   "g": "foreign",
+   "label": "Dollar index (computed)",
+   "sub": "Weaker dollar with higher yields = monetization signal",
+   "unit": "",
+   "trigger": 98,
+   "lo": 90,
+   "hi": 115,
+   "dir": "below",
+   "about": [
+    "The US Dollar Index computed from six daily exchange-rate closes using ICE's published DXY formula: the dollar against the euro (57.6% weight), yen, pound, Canadian dollar, krona and Swiss franc. It tracks the official index closely but is not the official ICE print.",
+    "Higher US yields normally strengthen the dollar. The trigger is a move below 98.",
+    "A falling dollar while yields rise is abnormal. It points to foreign investors selling US assets outright, a credibility or monetization risk premium rather than a growth story."
+   ]
+  },
+  {
+   "id": "srf",
+   "g": "plumbing",
+   "label": "Standing Repo Facility usage",
+   "sub": "Zero in calm; $75B at year-end; first stress tell",
+   "unit": "$B",
+   "trigger": 25,
+   "lo": 0,
+   "hi": 150,
+   "dir": "above",
+   "about": [
+    "Daily usage of the Fed's Standing Repo Facility, where eligible dealers and banks borrow cash overnight against Treasury and agency collateral at a rate set at the top of the Fed's target range. In $B, morning and afternoon operations combined.",
+    "Normally near zero. Usage means private repo rates have climbed to the Fed's ceiling. Quarter-ends and year-end spike (about $75B at the last year-end). The trigger is $25B.",
+    "Basis trades are financed in repo, so funding stress hits them first. Heavy SRF use outside calendar dates is one of the earliest tells of cash scarcity."
+   ]
+  },
+  {
+   "id": "basis",
+   "g": "plumbing",
+   "label": "Basis trade size (Fed est.)",
+   "sub": "~2x the 2020 level; Fed data lags a year",
+   "unit": "$B",
+   "trigger": 830,
+   "lo": 0,
+   "hi": 1000,
+   "dir": "below",
+   "about": [
+    "The Federal Reserve's estimate of hedge funds' cash-futures Treasury basis trade, from regulatory filings. It is published with about a one-year lag.",
+    "Currently around twice the 2020 level. The trigger at $830B flags a published estimate showing the trade shrinking.",
+    "It sets the scale of a forced unwind. In March 2020 a smaller version of this trade unwound fast enough that the Fed had to step in and buy Treasuries."
+   ]
+  },
+  {
+   "id": "cot",
+   "g": "plumbing",
+   "label": "Leveraged funds net short, UST futures",
+   "sub": "COT weekly; falling = funds exiting the trade",
+   "unit": "$B",
+   "trigger": 600,
+   "lo": 0,
+   "hi": 1200,
+   "dir": "below",
+   "about": [
+    "Leveraged funds' net short position across 2-year, 5-year, 10-year, Ultra 10-year, Bond and Ultra Bond futures, from the CFTC's weekly Traders in Financial Futures report. Converted to $B face value. Positions are as of Tuesday and released Friday.",
+    "Rising means the basis trade is growing. A fast drop means funds are covering shorts, which in a basis trade means selling the matching cash bonds. The trigger is a fall below $600B.",
+    "The futures short is the only near-real-time public proxy for the size of the basis trade, the live counterpart to the Fed's lagged estimate."
+   ]
+  },
+  {
+   "id": "margin",
+   "g": "plumbing",
+   "label": "CME 10y note initial margin",
+   "sub": "Downwards inflexible; rises with vol",
+   "unit": "$",
+   "trigger": 3000,
+   "lo": 1000,
+   "hi": 5000,
+   "dir": "above",
+   "about": [
+    "CME initial margin per contract for 10-year T-note (ZN) futures, front month, for non-member (speculator) accounts. In dollars.",
+    "CME raises margins as volatility rises and is slow to lower them afterward. The trigger is $3,000.",
+    "Basis trades run on futures leverage. A margin hike forces every short to post more cash at the same moment, which can push many funds to cut positions together."
+   ]
+  },
+  {
+   "id": "tail10",
+   "g": "plumbing",
+   "label": "Last 10y auction tail",
+   "sub": "Positive tail + weak indirects = demand test failed · WI yield from a single source, not cross-checked",
+   "unit": "bp",
+   "trigger": 2,
+   "lo": -3,
+   "hi": 5,
+   "dir": "above",
+   "about": [
+    "For the most recent 10-year note auction: the auction's high yield minus the when-issued yield trading just before the 1 PM bid deadline, in basis points. Positive is a tail; negative is a stop-through.",
+    "A tail means Treasury had to sell at a higher yield than the market expected, a sign of weak demand. More than +1 to +2bp is weak, and it matters more alongside a low share for indirect bidders (a group that includes foreign buyers) or a large dealer takedown. The trigger is +2bp.",
+    "Auctions are the cleanest test of real demand for new supply. Repeated tails mean the market needs a price concession to absorb issuance, which pushes yields up and leaves more bonds on dealer balance sheets."
+   ]
+  },
+  {
+   "id": "tail30",
+   "g": "plumbing",
+   "label": "Last 30y auction tail",
+   "sub": "WI yield from a single source, not cross-checked",
+   "unit": "bp",
+   "trigger": 2,
+   "lo": -3,
+   "hi": 5,
+   "dir": "above",
+   "about": [
+    "For the most recent 30-year bond auction: the high yield minus the when-issued yield just before the 1 PM deadline, in basis points. Positive is a tail; negative is a stop-through.",
+    "Same reading as the 10-year: more than +1 to +2bp is weak. The trigger is +2bp.",
+    "The 30-year has the most duration and the smallest natural buyer base, so a tail here says the most about term premium and long-end supply fatigue."
+   ]
+  }
+ ],
+ "auction_terms": [
+  "2-Year",
+  "5-Year",
+  "7-Year",
+  "10-Year",
+  "20-Year",
+  "30-Year"
+ ],
+ "event_tags": [
+  "liquidity",
+  "fed",
+  "boj",
+  "treasury"
+ ]
+}

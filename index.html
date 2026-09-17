@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Macro Tension Monitor</title>
+<meta name="description" content="Free dashboards tracking how close macro themes are to their breaking points: rates, oil, yen carry, dollar and funding markets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Macro Tension Monitor</h1>
+      <p class="sub">How close each macro theme is to its breaking point, in one place: levels, triggers, dated events and the news moving them.</p>
+    </div>
+    <span class="status" id="status"></span>
+  </header>
+  <div id="app"><p class="empty">Loading dashboards…</p></div>
+</div>
+<script src="assets/app.js"></script>
+<script>MTM.hubPage();</script>
+</body>
+</html>

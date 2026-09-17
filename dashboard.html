@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · Macro Tension Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <a class="crumb" href="index.html">← All dashboards</a>
+      <h1 id="title">Loading…</h1>
+      <p class="sub" id="tagline"></p>
+    </div>
+    <span class="status" id="status"></span>
+  </header>
+  <div id="app"></div>
+</div>
+<script src="assets/app.js"></script>
+<script>MTM.dashboardPage();</script>
+</body>
+</html>

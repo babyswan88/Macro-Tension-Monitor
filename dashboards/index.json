@@ -1,0 +1,10 @@
+{
+ "dashboards": [
+  {
+   "id": "liquidity",
+   "title": "Treasury liquidity",
+   "tagline": "Basis-trade unwind setup: how far each input sits from the level that changes hedge-fund behavior.",
+   "status": "live"
+  }
+ ]
+}

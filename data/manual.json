@@ -1,0 +1,28 @@
+{
+ "_readme": "Values entered by hand or by the Claude editor task. fetch.py copies these into latest.json unchanged. Keep value numeric, asof YYYY-MM-DD, and name the source.",
+ "boj": {
+  "value": 1.0,
+  "asof": "2026-07-31",
+  "source": "BoJ Statement on Monetary Policy, 2026-07-31"
+ },
+ "basis": {
+  "value": 830,
+  "asof": "2025-09-30",
+  "source": "Federal Reserve estimate"
+ },
+ "margin": {
+  "value": null,
+  "asof": null,
+  "source": "CME Group clearing advisory"
+ },
+ "tail10": {
+  "value": -2,
+  "asof": "2026-09-09",
+  "source": "TreasuryDirect high yield 4.834%; WI 4.849% per InvestingLive"
+ },
+ "tail30": {
+  "value": -3,
+  "asof": "2026-09-10",
+  "source": "TreasuryDirect high yield 5.308%; WI 5.335% per InvestingLive"
+ }
+}

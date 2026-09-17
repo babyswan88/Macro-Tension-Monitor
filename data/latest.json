@@ -1,0 +1,205 @@
+{
+ "auctions": [
+  {
+   "cusip": "",
+   "date": "2026-09-24",
+   "high_yield": null,
+   "reopening": false,
+   "security_term": "7-Year",
+   "term": "7-Year"
+  },
+  {
+   "cusip": "",
+   "date": "2026-09-23",
+   "high_yield": null,
+   "reopening": false,
+   "security_term": "5-Year",
+   "term": "5-Year"
+  },
+  {
+   "cusip": "",
+   "date": "2026-09-22",
+   "high_yield": null,
+   "reopening": false,
+   "security_term": "2-Year",
+   "term": "2-Year"
+  },
+  {
+   "cusip": "912810UW6",
+   "date": "2026-09-10",
+   "high_yield": 5.308,
+   "reopening": true,
+   "security_term": "29-Year 11-Month",
+   "term": "30-Year"
+  },
+  {
+   "cusip": "91282CRF0",
+   "date": "2026-09-09",
+   "high_yield": 4.834,
+   "reopening": true,
+   "security_term": "9-Year 11-Month",
+   "term": "10-Year"
+  }
+ ],
+ "auctions_error": null,
+ "failed": [],
+ "generated": "2026-09-17T13:30:00Z",
+ "indicators": {
+  "basis": {
+   "asof": "2025-09-30",
+   "manual": true,
+   "source": "Federal Reserve estimate",
+   "stale": false,
+   "value": 830
+  },
+  "boj": {
+   "asof": "2026-07-31",
+   "manual": true,
+   "source": "BoJ Statement on Monetary Policy, 2026-07-31",
+   "stale": false,
+   "value": 1.0
+  },
+  "brent": {
+   "asof": "2026-09-15",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 106
+  },
+  "corr": {
+   "asof": "2026-09-15",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 0.4
+  },
+  "cot": {
+   "asof": "2026-09-08",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 815
+  },
+  "cpi": {
+   "asof": "2026-08-01",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 3.4
+  },
+  "diesel": {
+   "asof": "2026-09-14",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 6.29
+  },
+  "dxy": {
+   "asof": "2026-09-15",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 99.61
+  },
+  "ff": {
+   "asof": "2026-09-16",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 3.75
+  },
+  "jgb10": {
+   "asof": "2026-09-16",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 3.0
+  },
+  "margin": {
+   "asof": null,
+   "manual": true,
+   "source": "CME Group clearing advisory",
+   "stale": false,
+   "value": null
+  },
+  "pce": {
+   "asof": "2026-07-01",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 3.3
+  },
+  "spx": {
+   "asof": "2026-09-16",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 7551.81
+  },
+  "srf": {
+   "asof": "2026-09-15",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 0
+  },
+  "tail10": {
+   "asof": "2026-09-09",
+   "manual": true,
+   "source": "TreasuryDirect high yield 4.834%; WI 4.849% per InvestingLive",
+   "stale": false,
+   "value": -2
+  },
+  "tail30": {
+   "asof": "2026-09-10",
+   "manual": true,
+   "source": "TreasuryDirect high yield 5.308%; WI 5.335% per InvestingLive",
+   "stale": false,
+   "value": -3
+  },
+  "usdjpy": {
+   "asof": "2026-09-11",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 153.71
+  },
+  "ust10": {
+   "asof": "2026-09-16",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 5.01
+  },
+  "ust2": {
+   "asof": "2026-09-16",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 4.74
+  },
+  "ust30": {
+   "asof": "2026-09-16",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 5.35
+  },
+  "vix": {
+   "asof": "2026-09-15",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 17.2
+  },
+  "wti": {
+   "asof": "2026-09-15",
+   "seed": true,
+   "source": "Seed: copied from the Claude-maintained monitor on 2026-09-17",
+   "stale": false,
+   "value": 102
+  }
+ },
+ "ok": [],
+ "seed": true
+}
