@@ -1,0 +1,50 @@
+name: Fetch data
+
+on:
+  schedule:
+    # Weekdays. 22:30 UTC catches the US close and the Treasury curve;
+    # 12:00 UTC picks up FRED series that post overnight and Tokyo data.
+    - cron: "30 22 * * 1-5"
+    - cron: "0 12 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-data
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install xlrd==2.0.1
+
+      - name: Fetch indicators
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+        run: python scripts/fetch.py
+
+      - name: Commit data if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Update data $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase
+            git push
+          fi
