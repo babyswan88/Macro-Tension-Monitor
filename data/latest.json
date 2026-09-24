@@ -3,7 +3,7 @@
   {
    "cusip": "91282CRM5",
    "date": "2026-09-24",
-   "high_yield": null,
+   "high_yield": 5.085,
    "reopening": false,
    "security_term": "7-Year",
    "term": "7-Year"
@@ -147,7 +147,7 @@
  ],
  "auctions_error": null,
  "failed": [],
- "generated": "2026-09-24T12:13:57Z",
+ "generated": "2026-09-24T22:39:30Z",
  "indicators": {
   "basis": {
    "asof": "2025-09-30",
@@ -165,56 +165,56 @@
   },
   "brent": {
    "asof": "2026-09-22",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "FRED DCOILBRENTEU (Brent spot, EIA)",
    "stale": false,
    "value": 114.89
   },
   "corr": {
-   "asof": "2026-09-22",
-   "fetched": "2026-09-24T12:13:57Z",
+   "asof": "2026-09-23",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "FRED SP500 and DGS10, 21-day correlation (sign flipped)",
    "stale": false,
-   "value": 0.59
+   "value": 0.67
   },
   "cot": {
    "asof": "2026-09-15",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "CFTC Traders in Financial Futures, futures only",
    "stale": false,
    "value": 787
   },
   "cpi": {
    "asof": "2026-08-01",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "FRED CPIAUCNS (CPI-U, not seasonally adjusted), 12-month change",
    "stale": false,
    "value": 3.4
   },
   "diesel": {
    "asof": "2026-09-21",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "FRED GASDESW (US on-highway diesel, EIA weekly)",
    "stale": false,
    "value": 6.53
   },
   "dxy": {
    "asof": "2026-09-23",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "Computed from Twelve Data FX closes using the ICE DXY formula",
    "stale": false,
    "value": 101.12
   },
   "ff": {
    "asof": "2026-09-24",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "FRED DFEDTARU (fed funds target, upper bound)",
    "stale": false,
    "value": 4.0
   },
   "jgb10": {
    "asof": "2026-09-18",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "Japan Ministry of Finance JGB yields",
    "stale": false,
    "value": 2.98
@@ -228,21 +228,21 @@
   },
   "pce": {
    "asof": "2026-07-01",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "FRED PCEPILFE (core PCE price index), 12-month change",
    "stale": false,
    "value": 3.3
   },
   "spx": {
    "asof": "2026-09-23",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "FRED SP500 (S&P 500 close)",
    "stale": false,
    "value": 7706.03
   },
   "srf": {
-   "asof": "2026-09-23",
-   "fetched": "2026-09-24T12:13:57Z",
+   "asof": "2026-09-24",
+   "fetched": "2026-09-24T22:39:30Z",
    "ops": 2,
    "source": "NY Fed repo operation results (SRF)",
    "stale": false,
@@ -263,50 +263,50 @@
    "value": -3
   },
   "tp10": {
-   "asof": "2026-09-22",
-   "fetched": "2026-09-24T12:13:57Z",
+   "asof": "2026-09-23",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "NY Fed ACM term premia (ACMTP10)",
    "stale": false,
-   "value": 58
+   "value": 65
   },
   "usdjpy": {
    "asof": "2026-09-23",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "Twelve Data USD/JPY daily close",
    "stale": false,
    "value": 158.35
   },
   "ust10": {
-   "asof": "2026-09-23",
-   "fetched": "2026-09-24T12:13:57Z",
+   "asof": "2026-09-24",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "U.S. Treasury daily par yield curve",
    "stale": false,
-   "value": 5.11
+   "value": 5.18
   },
   "ust2": {
-   "asof": "2026-09-23",
-   "fetched": "2026-09-24T12:13:57Z",
+   "asof": "2026-09-24",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "U.S. Treasury daily par yield curve",
    "stale": false,
-   "value": 4.85
+   "value": 4.87
   },
   "ust30": {
-   "asof": "2026-09-23",
-   "fetched": "2026-09-24T12:13:57Z",
+   "asof": "2026-09-24",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "U.S. Treasury daily par yield curve",
    "stale": false,
-   "value": 5.4
+   "value": 5.47
   },
   "vix": {
    "asof": "2026-09-22",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "Cboe VIX daily history",
    "stale": false,
    "value": 14.21
   },
   "wti": {
    "asof": "2026-09-22",
-   "fetched": "2026-09-24T12:13:57Z",
+   "fetched": "2026-09-24T22:39:30Z",
    "source": "FRED DCOILWTICO (WTI spot, Cushing, EIA)",
    "stale": false,
    "value": 96.41
