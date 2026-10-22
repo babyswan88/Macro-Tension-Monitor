@@ -146,17 +146,8 @@
   }
  ],
  "auctions_error": null,
- "failed": [
-  "ff",
-  "spx",
-  "corr",
-  "brent",
-  "wti",
-  "diesel",
-  "cpi",
-  "pce"
- ],
- "generated": "2026-10-22T00:49:35Z",
+ "failed": [],
+ "generated": "2026-10-22T16:43:08Z",
  "indicators": {
   "basis": {
    "asof": "2025-09-30",
@@ -173,67 +164,57 @@
    "value": 1.0
   },
   "brent": {
-   "asof": "2026-10-14",
-   "attempted": "2026-10-22T00:49:35Z",
-   "error": "Expecting value: line 1 column 1 (char 0)",
-   "fetched": "2026-10-21T00:46:54Z",
+   "asof": "2026-10-20",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "FRED DCOILBRENTEU (Brent spot, EIA)",
-   "stale": true,
-   "value": 126.55
+   "stale": false,
+   "value": 115.22
   },
   "corr": {
-   "asof": "2026-10-19",
-   "attempted": "2026-10-22T00:49:35Z",
-   "error": "Expecting value: line 1 column 1 (char 0)",
-   "fetched": "2026-10-21T00:46:54Z",
+   "asof": "2026-10-20",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "FRED SP500 and DGS10, 21-day correlation (sign flipped)",
-   "stale": true,
-   "value": 0.23
+   "stale": false,
+   "value": 0.26
   },
   "cot": {
    "asof": "2026-10-13",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "CFTC Traders in Financial Futures, futures only",
    "stale": false,
    "value": 825
   },
   "cpi": {
    "asof": "2026-09-01",
-   "attempted": "2026-10-22T00:49:35Z",
-   "error": "Expecting value: line 1 column 1 (char 0)",
-   "fetched": "2026-10-21T00:46:54Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "FRED CPIAUCNS (CPI-U, not seasonally adjusted), 12-month change",
-   "stale": true,
+   "stale": false,
    "value": 3.7
   },
   "diesel": {
    "asof": "2026-10-19",
-   "attempted": "2026-10-22T00:49:35Z",
-   "error": "Expecting value: line 1 column 1 (char 0)",
-   "fetched": "2026-10-21T00:46:54Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "FRED GASDESW (US on-highway diesel, EIA weekly)",
-   "stale": true,
+   "stale": false,
    "value": 6.28
   },
   "dxy": {
    "asof": "2026-10-21",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "Computed from Twelve Data FX closes using the ICE DXY formula",
    "stale": false,
    "value": 101.7
   },
   "ff": {
-   "asof": "2026-10-20",
-   "attempted": "2026-10-22T00:49:35Z",
-   "error": "Expecting value: line 1 column 1 (char 0)",
-   "fetched": "2026-10-21T00:46:54Z",
+   "asof": "2026-10-22",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "FRED DFEDTARU (fed funds target, upper bound)",
-   "stale": true,
+   "stale": false,
    "value": 4.0
   },
   "jgb10": {
    "asof": "2026-10-21",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "Japan Ministry of Finance JGB yields",
    "stale": false,
    "value": 2.92
@@ -247,25 +228,21 @@
   },
   "pce": {
    "asof": "2026-08-01",
-   "attempted": "2026-10-22T00:49:35Z",
-   "error": "Expecting value: line 1 column 1 (char 0)",
-   "fetched": "2026-10-21T00:46:54Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "FRED PCEPILFE (core PCE price index), 12-month change",
-   "stale": true,
+   "stale": false,
    "value": 3.0
   },
   "spx": {
-   "asof": "2026-10-19",
-   "attempted": "2026-10-22T00:49:35Z",
-   "error": "Expecting value: line 1 column 1 (char 0)",
-   "fetched": "2026-10-21T00:46:54Z",
+   "asof": "2026-10-21",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "FRED SP500 (S&P 500 close)",
-   "stale": true,
-   "value": 7690.73
+   "stale": false,
+   "value": 7757.17
   },
   "srf": {
    "asof": "2026-10-21",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "ops": 2,
    "source": "NY Fed repo operation results (SRF)",
    "stale": false,
@@ -287,62 +264,68 @@
   },
   "tp10": {
    "asof": "2026-10-20",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "NY Fed ACM term premia (ACMTP10)",
    "stale": false,
    "value": 73
   },
   "usdjpy": {
    "asof": "2026-10-21",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "Twelve Data USD/JPY daily close",
    "stale": false,
    "value": 158.21
   },
   "ust10": {
    "asof": "2026-10-21",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "U.S. Treasury daily par yield curve",
    "stale": false,
    "value": 5.13
   },
   "ust2": {
    "asof": "2026-10-21",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "U.S. Treasury daily par yield curve",
    "stale": false,
    "value": 4.81
   },
   "ust30": {
    "asof": "2026-10-21",
-   "fetched": "2026-10-22T00:49:35Z",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "U.S. Treasury daily par yield curve",
    "stale": false,
    "value": 5.42
   },
   "vix": {
-   "asof": "2026-10-20",
-   "fetched": "2026-10-22T00:49:35Z",
+   "asof": "2026-10-21",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "Cboe VIX daily history",
    "stale": false,
-   "value": 17.31
+   "value": 16.68
   },
   "wti": {
-   "asof": "2026-10-14",
-   "attempted": "2026-10-22T00:49:35Z",
-   "error": "Expecting value: line 1 column 1 (char 0)",
-   "fetched": "2026-10-21T00:46:54Z",
+   "asof": "2026-10-20",
+   "fetched": "2026-10-22T16:43:08Z",
    "source": "FRED DCOILWTICO (WTI spot, Cushing, EIA)",
-   "stale": true,
-   "value": 101.91
+   "stale": false,
+   "value": 107.89
   }
  },
  "ok": [
   "ust2",
   "ust10",
   "ust30",
+  "ff",
   "tp10",
   "vix",
+  "spx",
+  "corr",
+  "brent",
+  "wti",
+  "diesel",
+  "cpi",
+  "pce",
   "jgb10",
   "usdjpy",
   "dxy",
